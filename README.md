@@ -1,2 +1,2 @@
 # Ingetin
-Tugas provis
+Splash Screen and Profile page.
