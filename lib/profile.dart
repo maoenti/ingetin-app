@@ -29,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: EdgeInsets.all(20),
                 child: CircleAvatar(
                   radius: 50.0,
-                  backgroundImage: AssetImage('images/keisya.jpg'),
+                  backgroundImage: AssetImage('assets/images/keisya.png'),
                 ),
               ),
               Text(

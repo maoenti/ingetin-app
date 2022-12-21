@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ingetin/profile.dart';
 
 class BerandaPage extends StatefulWidget {
   const BerandaPage({Key? key}) : super(key: key);
@@ -91,6 +92,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     });
   }
 
+  void _goToProfile() {
+    setState(() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ProfilePage()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,10 +109,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           children: [
             // Judul
             Container(
-              padding: EdgeInsets.only(top: 50, left: 20),
+              padding: EdgeInsets.only(top: 50, left: 20, right: 20),
               child: Row(
                 children:[
-                  Column(
+                  Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children:[
                         Row(
@@ -120,9 +129,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         )
                       ]
                   ),
-                  Column(
-                    // foto profile
-                  ),
+                  Expanded(child: SizedBox()),
+                  IconButton(
+                    onPressed: _goToProfile,
+                    icon: CircleAvatar(
+                      radius: 50.0,
+                      backgroundImage: AssetImage('assets/images/keisya.png'),
+                    ),
+                  )
                 ],
               ),
             ),
