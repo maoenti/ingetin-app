@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "coba_uts" "\0"
+            VALUE "FileDescription", "ingetin" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "coba_uts" "\0"
+            VALUE "InternalName", "ingetin" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "coba_uts.exe" "\0"
-            VALUE "ProductName", "coba_uts" "\0"
+            VALUE "OriginalFilename", "ingetin.exe" "\0"
+            VALUE "ProductName", "ingetin" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
