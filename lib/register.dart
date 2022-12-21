@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ingetin/login.dart';
 import 'package:ingetin/theme2.dart';
 import 'package:ingetin/widgets/primary_button.dart';
 
@@ -21,17 +22,15 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF8F7F7),
       body: Center(
           child: Padding(
-            padding: EdgeInsets.all(30.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+            child: ListView(
+              children: <Widget>[
                 Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.only(top: 30),
+                  margin: const EdgeInsets.only(top: 50),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -40,38 +39,35 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: TextStyle(
                           // fontFamily: FontPoppins,
                             fontSize: 40,
-                            fontWeight: FontWeight.w900,
+                            fontWeight: FontWeight.w700,
                             color: Color(0xFF97DBAE)),
                       ),
                       Text(
                         'in.',
                         style: TextStyle(
                             fontSize: 40,
-                            fontWeight: FontWeight.w900,
+                            fontWeight: FontWeight.w700,
                             color: Color(0xFF000000)),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: 112,
+                  height: 100,
                 ),
                 Form(
                     child: Column(
                       children: [
                         Container(
-                          height: 43,
+                          height: 40,
                           decoration: BoxDecoration(
                               color: Color(0xffFFFFFF),
                               borderRadius: BorderRadius.circular(5)),
                           child: TextFormField(
                             decoration: InputDecoration(
-                                hintText: 'Nama Lengkap',
-                                hintStyle: heading6.copyWith(
-                                  color: Color(0xffA79B9B),
-                                ),
-                                border:
-                                OutlineInputBorder(borderSide: BorderSide.none)),
+                              border: OutlineInputBorder(borderSide: BorderSide.none),
+                              labelText: 'Nama Lengkap',
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -84,12 +80,9 @@ class _RegisterPageState extends State<RegisterPage> {
                               borderRadius: BorderRadius.circular(5)),
                           child: TextFormField(
                             decoration: InputDecoration(
-                                hintText: 'Alamat email',
-                                hintStyle: heading6.copyWith(
-                                  color: Color(0xffA79B9B),
-                                ),
-                                border:
-                                OutlineInputBorder(borderSide: BorderSide.none)),
+                              border: OutlineInputBorder(borderSide: BorderSide.none),
+                              labelText: 'Alamat Email',
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -103,12 +96,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: TextFormField(
                             obscureText: !passwordVisible,
                             decoration: InputDecoration(
-                                hintText: 'Kata sandi',
-                                hintStyle: heading6.copyWith(
-                                  color: Color(0xffA79B9B),
-                                ),
-                                border:
-                                OutlineInputBorder(borderSide: BorderSide.none)),
+                              border: OutlineInputBorder(borderSide: BorderSide.none),
+                              labelText: 'Kata Sandi',
+                            ),
                           ),
                         ),
                       ],
@@ -116,32 +106,49 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   height: 20,
                 ),
-                CustomPrimaryButton(
-                  buttonColor: Color(0xff97DBAE),
-                  textValue: 'Registrasi',
-                  textColor: Color(0xff000000),
-                ),
+                Container(
+                    height: 35,
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: ElevatedButton(
+                      child: Text(
+                        'Registrasi',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFF000000)),
+                      ),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Login()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF97DBAE)),
+                    )),
                 SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Sudah punya akun? ',
-                      style: regular9pt.copyWith(color: Color(0xff302C2C)),
+                  children: <Widget>[
+                    const Text(
+                      'Sudah punya akun?',
+                      style: TextStyle(fontSize: 10),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text(
+                    TextButton(
+                      child: const Text(
                         'LOGIN',
-                        style: regular9pt.copyWith(color: primaryBlue),
+                        style: TextStyle(
+                            fontSize: 10,
+                            color: Color(0xFF3E9BDE),
+                            fontWeight: FontWeight.w400),
                       ),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Login()));
+                      },
                     )
                   ],
-                )
+                ),
               ],
             ),
           )),
