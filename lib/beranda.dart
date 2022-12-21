@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ingetin/add-task.dart';
 import 'package:ingetin/profile.dart';
 
 class BerandaPage extends StatefulWidget {
@@ -89,14 +90,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   void _addTask() {
     setState(() {
+      Navigator.push(context,MaterialPageRoute(builder: (context) => AddTaskPage()));
     });
   }
 
   void _goToProfile() {
     setState(() {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => ProfilePage()));
+      Navigator.push(context,MaterialPageRoute(builder: (context) => ProfilePage()));
     });
   }
 
