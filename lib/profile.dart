@@ -27,10 +27,11 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Container(
                 padding: EdgeInsets.all(20),
-                child: CircleAvatar(
-                  radius: 50.0,
-                  backgroundImage: AssetImage('assets/images/keisya.png'),
-                ),
+                // child: CircleAvatar(
+                //   radius: 50.0,
+                //   backgroundImage: AssetImage('assets/images/keisya.png'),
+                // ),
+                child: Image.asset('assets/images/user.png', width: 100, height: 100, scale: 0.5,),
               ),
               Text(
                 'Keisya Levronka',

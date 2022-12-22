@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ingetin/add-task.dart';
+import 'package:ingetin/detail-goals.dart';
+import 'package:ingetin/edit-task.dart';
 import 'package:ingetin/profile.dart';
 
 class BerandaPage extends StatefulWidget {
@@ -94,6 +96,24 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     });
   }
 
+  void _editTask() {
+    setState(() {
+      Navigator.push(context,MaterialPageRoute(builder: (context) => EditTaskPage()));
+    });
+  }
+
+  void _deleteTask() {
+    setState(() {
+      Navigator.push(context,MaterialPageRoute(builder: (context) => EditTaskPage())); // ganti jadi delete task
+    });
+  }
+
+  void _detailGoals() {
+    setState(() {
+      Navigator.push(context,MaterialPageRoute(builder: (context) => DetailGoalsPage())); // ganti jadi delete task
+    });
+  }
+
   void _goToProfile() {
     setState(() {
       Navigator.push(context,MaterialPageRoute(builder: (context) => ProfilePage()));
@@ -132,10 +152,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   Expanded(child: SizedBox()),
                   IconButton(
                     onPressed: _goToProfile,
-                    icon: CircleAvatar(
-                      radius: 50.0,
-                      backgroundImage: AssetImage('assets/images/keisya.png'),
-                    ),
+                    // icon: CircleAvatar(
+                    //   radius: 50.0,
+                    //   backgroundImage: AssetImage('assets/images/user.png'),
+                    // ),
+                    icon: Image.asset('assets/images/user.png')
                   )
                 ],
               ),
@@ -181,54 +202,58 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                       onPressed: () => null
                   ),
                   for (var i in jumlah_container)
-                    Container(
-                      width: 150,
-                      padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(left: 10),
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          borderRadius: BorderRadius.all(Radius.circular(5))
-                      ),
-                      child: Column(
+                    GestureDetector(
+                      onTap: _detailGoals,
+                      child: Container(
+                        width: 150,
+                        padding: EdgeInsets.all(10),
+                        margin: EdgeInsets.only(left: 10),
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: BorderRadius.all(Radius.circular(5))
+                        ),
+                        child: Column(
 
-                          children:[
-                            Row(
-                              children: [
-                                Flexible(
-                                  child:Text(
-                                    ('Suatu Goals ' + i.toString()),
-                                    style: Theme.of(context).textTheme.headline4,
+                            children:[
+                              Row(
+                                children: [
+                                  Flexible(
+                                    child:Text(
+                                      ('Suatu Goals ' + i.toString()),
+                                      style: Theme.of(context).textTheme.headline4,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Flexible(
-                                  child: Text(
-                                    '7/10 Task',
-                                    style: CustomTextStyle.blackCaptionText,
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Flexible(
+                                    child: Text(
+                                      '7/10 Task',
+                                      style: CustomTextStyle.blackCaptionText,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            Expanded(
-                              child: SizedBox(),
-                            ),
-                            Container(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.all(Radius.circular(100)),
-                                  child: LinearProgressIndicator(
-                                    minHeight: 8,
-                                    color: Color(0xFF595959), //<-- SEE HERE
-                                    backgroundColor: Color(0xFFD9D9D9), //<-- SEE HERE
-                                    value: 0.7,
-                                  ),
-                                )
-                            )
-                          ]
+                                ],
+                              ),
+                              Expanded(
+                                child: SizedBox(),
+                              ),
+                              Container(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.all(Radius.circular(100)),
+                                    child: LinearProgressIndicator(
+                                      minHeight: 8,
+                                      color: Color(0xFF595959), //<-- SEE HERE
+                                      backgroundColor: Color(0xFFD9D9D9), //<-- SEE HERE
+                                      value: 0.7,
+                                    ),
+                                  )
+                              )
+                            ]
+                        ),
                       ),
-                    ),
+                    )
+
                 ],
               ),
             ),
@@ -327,6 +352,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                                   )
                                                 ],
                                               ),
+                                            ),
+                                            IconButton(
+                                              onPressed: _editTask,
+                                              icon: Image.asset('assets/images/edit.png')
+                                            ),
+                                            IconButton(
+                                              onPressed: _deleteTask,
+                                              icon: Image.asset('assets/images/trash.png')
                                             )
                                           ]
                                       )
