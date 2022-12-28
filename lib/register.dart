@@ -57,19 +57,19 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   height: 100,
                 ),
-                Container(
-                  margin: const EdgeInsets.all(5),
-                  height: 40,
-                  color: const Color(0xffFFFFFF),
-                  child: TextField(
-                    controller: emailController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(borderSide: BorderSide.none),
-                      labelText: 'Nama Lengkap',
-                    ),
-                    style: TextStyle(fontSize: 14, color: Color(0xFF000000)),
-                  ),
+            Container(
+              margin: const EdgeInsets.all(5),
+              height: 40,
+              color: const Color(0xffFFFFFF),
+              child: TextField(
+                controller: emailController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                  labelText: 'Nama Lengkap',
                 ),
+                style: TextStyle(fontSize: 14, color: Color(0xFF000000)),
+              ),
+            ),
                 Container(
                   margin: const EdgeInsets.all(5),
                   height: 40,
@@ -83,22 +83,22 @@ class _RegisterPageState extends State<RegisterPage> {
                     style: TextStyle(fontSize: 14, color: Color(0xFF000000)),
                   ),
                 ),
-                //Input password
-                Container(
-                  // padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                  margin: const EdgeInsets.all(5),
-                  height: 40,
-                  color: const Color(0xffFFFFFF),
-                  child: TextField(
-                    obscureText: true,
-                    controller: passwordController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(borderSide: BorderSide.none),
-                      labelText: 'Kata sandi',
-                    ),
-                    style: TextStyle(fontSize: 14, color: Color(0xFF000000)),
-                  ),
+            //Input password
+            Container(
+              // padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              margin: const EdgeInsets.all(5),
+              height: 40,
+              color: const Color(0xffFFFFFF),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                  labelText: 'Kata sandi',
                 ),
+                style: TextStyle(fontSize: 14, color: Color(0xFF000000)),
+              ),
+            ),
                 SizedBox(
                   height: 20,
                 ),
