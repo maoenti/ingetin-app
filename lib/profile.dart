@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ingetin/login.dart';
+import 'package:ingetin/beranda.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -9,6 +10,13 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  void _goToBeranda() {
+    setState(() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BerandaPage()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +28,7 @@ class _ProfilePageState extends State<ProfilePage> {
             children: <Widget>[
               AppBar(
                 leading: BackButton(
-                    color: Colors.grey
+                    color: Colors.grey, onPressed: () => _goToBeranda()
                 ),
                 backgroundColor: Color.fromARGB(248, 247, 247, 247),
                 shadowColor: Colors.transparent,

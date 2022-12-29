@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ingetin/add-goals.dart';
+import 'package:ingetin/add-goal.dart';
 import 'package:ingetin/add-task.dart';
 import 'package:ingetin/detail-goals.dart';
 import 'package:ingetin/edit-task.dart';
@@ -115,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   void _addGoals() {
     setState(() {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => AddGoalsPage()));
+          context, MaterialPageRoute(builder: (context) => AddGoalPage()));
     });
   }
 
@@ -235,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  AddGoalsPage()));
+                                  AddGoalPage()));
                     },
                     ),
                   for (var i in jumlah_container)

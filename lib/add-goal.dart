@@ -91,13 +91,7 @@ class _AddGoalState extends State<AddGoalPage> {
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                           color: const Color(0xFF000000)),
-                    ),
-                    onPressed: () {
-                      // Navigator.push(context,
-                      //     MaterialPageRoute(builder: (BuildContext context) {
-                      //   return RegisterPage();
-                      // }));
-                    },
+                    ), onPressed: () => _goToBeranda(),
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF97DBAE)),
                   )),
