@@ -4,6 +4,7 @@ import 'package:ingetin/add-task.dart';
 import 'package:ingetin/detail-goals.dart';
 import 'package:ingetin/edit-task.dart';
 import 'package:ingetin/profile.dart';
+import 'package:ingetin/theme1.dart';
 
 class BerandaPage extends StatefulWidget {
   const BerandaPage({Key? key}) : super(key: key);
@@ -57,17 +58,12 @@ class _BerandaPageState extends State<BerandaPage> {
               fontWeight: FontWeight.w600,
               color: Colors.black),
           bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Poppins'),
-          bodyText1: TextStyle(
-              fontSize: 12.0, fontFamily: 'Poppins', color: Color(0xFFA3423C)),
+          bodyText1: TextStyle(fontSize: 12.0, fontFamily: 'Poppins', color: Color(0xFFA3423C)),
         ),
       ),
       home: const MyHomePage(),
     );
   }
-}
-
-class CustomColor {
-  static const Color light_grey = Color(0xFFCCCCCC);
 }
 
 class CustomTextStyle {
@@ -316,95 +312,322 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     padding: EdgeInsets.only(top: 10),
                     scrollDirection: Axis.vertical,
                     children: [
-                      for (var i in jumlah_container)
-                        Container(
-                          width: double.infinity,
-                          margin: EdgeInsets.only(bottom: 25),
-                          padding: EdgeInsets.only(
-                              top: 10, bottom: 10, left: 5, right: 5),
-                          decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                    offset: Offset(0, -10),
-                                    blurRadius: 0,
-                                    color: Color(0xFFA3423C))
-                              ],
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5))),
-                          child: Column(children: [
-                            for (var i in jumlah_container)
-                              Container(
-                                  padding: EdgeInsets.only(bottom: 7, top: 7),
-                                  child: Row(children: [
-                                    Checkbox(
-                                        activeColor:
-                                            Theme.of(context).primaryColor,
-                                        checkColor: Colors.black,
-                                        value: isChecked,
-                                        onChanged: (bool? value) {
-                                          setState(() {
-                                            isChecked = value!;
-                                          });
-                                        }),
-                                    Expanded(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                      Container(
+                        width: double.infinity,
+                        margin: EdgeInsets.only(bottom: 25),
+                        padding: EdgeInsets.only(
+                            top: 10, bottom: 10, left: 5, right: 5),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                offset: Offset(0, -10),
+                                blurRadius: 0,
+                                color: maroon,
+                              )
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(5))),
+                        child: Column(children: [
+                          for (var i in jumlah_container)
+                            Container(
+                              padding: EdgeInsets.only(bottom: 7, top: 7),
+                              child: Row(children: [
+                                Checkbox(
+                                    activeColor: Theme.of(context).primaryColor,
+                                    checkColor: Colors.black,
+                                    value: isChecked,
+                                    onChanged: (bool? value) {
+                                      setState(() {
+                                        isChecked = value!;
+                                      });
+                                    }),
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                    children: [
+                                      Row(
                                         children: [
-                                          Row(
-                                            children: [
-                                              Text(
-                                                ('Task ' + i.toString()),
-                                                textAlign: TextAlign.start,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .headline5,
-                                              ),
-                                            ],
+                                          Text(
+                                            ('Task ' + i.toString()),
+                                            textAlign: TextAlign.start,
+                                            style: Theme.of(context).textTheme.headline5,
                                           ),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                ('Rincian Task ' +
-                                                    i.toString()),
-                                                textAlign: TextAlign.start,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText1,
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                ('22:0' + i.toString()),
-                                                textAlign: TextAlign.start,
-                                                style:
-                                                    CustomTextStyle.captionText,
-                                              ),
-                                              Text(
-                                                (' 4 November'),
-                                                textAlign: TextAlign.start,
-                                                style:
-                                                    CustomTextStyle.captionText,
-                                              ),
-                                            ],
-                                          )
                                         ],
                                       ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            ('Rincian Task ' + i.toString()),
+                                            textAlign: TextAlign.start,
+                                            style: keyText1,
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            ('22:0' + i.toString()),
+                                            textAlign: TextAlign.start,
+                                            style: CustomTextStyle.captionText,
+                                          ),
+                                          Text(
+                                            (' 4 November'),
+                                            textAlign: TextAlign.start,
+                                            style: CustomTextStyle.captionText,
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                IconButton(
+                                    onPressed: _editTask,
+                                    icon: Image.asset('assets/images/edit.png')),
+                                IconButton(
+                                    onPressed: _deleteTask,
+                                    icon: Image.asset('assets/images/trash.png'))
+                              ])
+                            ),
+                        ]),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        margin: EdgeInsets.only(bottom: 25),
+                        padding: EdgeInsets.only(
+                            top: 10, bottom: 10, left: 5, right: 5),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                offset: Offset(0, -10),
+                                blurRadius: 0,
+                                color: dark_orange,
+                              )
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(5))),
+                        child: Column(children: [
+                          for (var i in jumlah_container)
+                            Container(
+                                padding: EdgeInsets.only(bottom: 7, top: 7),
+                                child: Row(children: [
+                                  Checkbox(
+                                      activeColor: Theme.of(context).primaryColor,
+                                      checkColor: Colors.black,
+                                      value: isChecked,
+                                      onChanged: (bool? value) {
+                                        setState(() {
+                                          isChecked = value!;
+                                        });
+                                      }),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              ('Task ' + i.toString()),
+                                              textAlign: TextAlign.start,
+                                              style: Theme.of(context).textTheme.headline5,
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              ('Rincian Task ' + i.toString()),
+                                              textAlign: TextAlign.start,
+                                              style: keyText2,
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              ('22:0' + i.toString()),
+                                              textAlign: TextAlign.start,
+                                              style: CustomTextStyle.captionText,
+                                            ),
+                                            Text(
+                                              (' 4 November'),
+                                              textAlign: TextAlign.start,
+                                              style: CustomTextStyle.captionText,
+                                            ),
+                                          ],
+                                        )
+                                      ],
                                     ),
-                                    IconButton(
-                                        onPressed: _editTask,
-                                        icon: Image.asset(
-                                            'assets/images/edit.png')),
-                                    IconButton(
-                                        onPressed: _deleteTask,
-                                        icon: Image.asset(
-                                            'assets/images/trash.png'))
-                                  ])),
-                          ]),
-                        ),
+                                  ),
+                                  IconButton(
+                                      onPressed: _editTask,
+                                      icon: Image.asset('assets/images/edit.png')),
+                                  IconButton(
+                                      onPressed: _deleteTask,
+                                      icon: Image.asset('assets/images/trash.png'))
+                                ])
+                            ),
+                        ]),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        margin: EdgeInsets.only(bottom: 25),
+                        padding: EdgeInsets.only(
+                            top: 10, bottom: 10, left: 5, right: 5),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                offset: Offset(0, -10),
+                                blurRadius: 0,
+                                color: orange,
+                              )
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(5))),
+                        child: Column(children: [
+                          for (var i in jumlah_container)
+                            Container(
+                                padding: EdgeInsets.only(bottom: 7, top: 7),
+                                child: Row(children: [
+                                  Checkbox(
+                                      activeColor: Theme.of(context).primaryColor,
+                                      checkColor: Colors.black,
+                                      value: isChecked,
+                                      onChanged: (bool? value) {
+                                        setState(() {
+                                          isChecked = value!;
+                                        });
+                                      }),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              ('Task ' + i.toString()),
+                                              textAlign: TextAlign.start,
+                                              style: Theme.of(context).textTheme.headline5,
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              ('Rincian Task ' + i.toString()),
+                                              textAlign: TextAlign.start,
+                                              style: keyText3,
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              ('22:0' + i.toString()),
+                                              textAlign: TextAlign.start,
+                                              style: CustomTextStyle.captionText,
+                                            ),
+                                            Text(
+                                              (' 4 November'),
+                                              textAlign: TextAlign.start,
+                                              style: CustomTextStyle.captionText,
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  IconButton(
+                                      onPressed: _editTask,
+                                      icon: Image.asset('assets/images/edit.png')),
+                                  IconButton(
+                                      onPressed: _deleteTask,
+                                      icon: Image.asset('assets/images/trash.png'))
+                                ])
+                            ),
+                        ]),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        margin: EdgeInsets.only(bottom: 25),
+                        padding: EdgeInsets.only(
+                            top: 10, bottom: 10, left: 5, right: 5),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                offset: Offset(0, -10),
+                                blurRadius: 0,
+                                color: light_yellow,
+                              )
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(5))),
+                        child: Column(children: [
+                          for (var i in jumlah_container)
+                            Container(
+                                padding: EdgeInsets.only(bottom: 7, top: 7),
+                                child: Row(children: [
+                                  Checkbox(
+                                      activeColor: Theme.of(context).primaryColor,
+                                      checkColor: Colors.black,
+                                      value: isChecked,
+                                      onChanged: (bool? value) {
+                                        setState(() {
+                                          isChecked = value!;
+                                        });
+                                      }),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              ('Task ' + i.toString()),
+                                              textAlign: TextAlign.start,
+                                              style: Theme.of(context).textTheme.headline5,
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              ('Rincian Task ' + i.toString()),
+                                              textAlign: TextAlign.start,
+                                              style: keyText4,
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              ('22:0' + i.toString()),
+                                              textAlign: TextAlign.start,
+                                              style: CustomTextStyle.captionText,
+                                            ),
+                                            Text(
+                                              (' 4 November'),
+                                              textAlign: TextAlign.start,
+                                              style: CustomTextStyle.captionText,
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  IconButton(
+                                      onPressed: _editTask,
+                                      icon: Image.asset('assets/images/edit.png')),
+                                  IconButton(
+                                      onPressed: _deleteTask,
+                                      icon: Image.asset('assets/images/trash.png'))
+                                ])
+                            ),
+                        ]),
+                      ),
                     ]),
               ),
             ),
