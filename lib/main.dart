@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ingetin/detail-goals.dart';
 import 'package:ingetin/splash-screen.dart';
-import 'package:ingetin/detail-goals.dart';
 
 void main() {
   runApp(const MyApp());

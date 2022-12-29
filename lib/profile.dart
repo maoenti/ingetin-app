@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ingetin/login.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -27,13 +28,14 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Container(
                 padding: EdgeInsets.all(20),
-                child: CircleAvatar(
-                  radius: 50.0,
-                  backgroundImage: AssetImage('assets/images/keisya.png'),
-                ),
+                // child: CircleAvatar(
+                //   radius: 50.0,
+                //   backgroundImage: AssetImage('assets/images/keisya.png'),
+                // ),
+                child: Image.asset('assets/images/user.png', width: 100, height: 100, scale: 0.5,),
               ),
               Text(
-                'Keisya Levronka',
+                'User A',
                 style: TextStyle(
                   fontSize: 24.0,
                   fontFamily: 'Poppins',
@@ -74,7 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'keisya@mail.com',
+                                'thisusera@mail.com',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 11,
@@ -167,7 +169,31 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ],
                 ),
-              )
+              ),
+              Container(
+                  height: 35,
+                  width:double.infinity,
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: ElevatedButton(
+                    child: Text(
+                      'Logout',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: const Color(0xFF000000)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Login()));
+                      // print(emailController.text);
+                      // print(passwordController.text);
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF97DBAE)),
+                  )),
 
               // SizedBox(
               //   child: Divider(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ingetin/beranda.dart';
 
 class EditTaskPage extends StatefulWidget {
   const EditTaskPage({Key? key}) : super(key: key);
@@ -10,6 +11,14 @@ class EditTaskPage extends StatefulWidget {
 class _EditTaskState extends State<EditTaskPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  void _goToBeranda() {
+    setState(() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BerandaPage()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +29,7 @@ class _EditTaskState extends State<EditTaskPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               AppBar(
-                leading: BackButton(color: Colors.grey),
+                leading: BackButton(color: Colors.grey, onPressed: () => _goToBeranda()),
                 title: Text(
                   "Ubah Task",
                   style: TextStyle(

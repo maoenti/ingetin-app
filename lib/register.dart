@@ -11,6 +11,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   bool passwordVisible = false;
   bool passwordConfirmVisible = false;
   void togglePassword() {
@@ -55,54 +57,48 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   height: 100,
                 ),
-                Form(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 40,
-                          decoration: BoxDecoration(
-                              color: Color(0xffFFFFFF),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(borderSide: BorderSide.none),
-                              labelText: 'Nama Lengkap',
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 43,
-                          decoration: BoxDecoration(
-                              color: Color(0xffFFFFFF),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(borderSide: BorderSide.none),
-                              labelText: 'Alamat Email',
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 43,
-                          decoration: BoxDecoration(
-                              color: Color(0xffFFFFFF),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: TextFormField(
-                            obscureText: !passwordVisible,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(borderSide: BorderSide.none),
-                              labelText: 'Kata Sandi',
-                            ),
-                          ),
-                        ),
-                      ],
-                    )),
+            Container(
+              margin: const EdgeInsets.all(5),
+              height: 40,
+              color: const Color(0xffFFFFFF),
+              child: TextField(
+                controller: emailController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                  labelText: 'Nama Lengkap',
+                ),
+                style: TextStyle(fontSize: 14, color: Color(0xFF000000)),
+              ),
+            ),
+                Container(
+                  margin: const EdgeInsets.all(5),
+                  height: 40,
+                  color: const Color(0xffFFFFFF),
+                  child: TextField(
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(borderSide: BorderSide.none),
+                      labelText: 'Alamat Email',
+                    ),
+                    style: TextStyle(fontSize: 14, color: Color(0xFF000000)),
+                  ),
+                ),
+            //Input password
+            Container(
+              // padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              margin: const EdgeInsets.all(5),
+              height: 40,
+              color: const Color(0xffFFFFFF),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                  labelText: 'Kata sandi',
+                ),
+                style: TextStyle(fontSize: 14, color: Color(0xFF000000)),
+              ),
+            ),
                 SizedBox(
                   height: 20,
                 ),
@@ -114,19 +110,21 @@ class _RegisterPageState extends State<RegisterPage> {
                         'Registrasi',
                         style: TextStyle(
                             fontSize: 14,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             color: const Color(0xFF000000)),
                       ),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Login()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegisterPage()));
+                        // print(emailController.text);
+                        // print(passwordController.text);
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF97DBAE)),
                     )),
-                SizedBox(
-                  height: 20,
-                ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -143,8 +141,10 @@ class _RegisterPageState extends State<RegisterPage> {
                             fontWeight: FontWeight.w400),
                       ),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Login()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Login()));
                       },
                     )
                   ],

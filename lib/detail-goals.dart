@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ingetin/beranda.dart';
 
 class CustomColor {
   static const Color light_grey = Color(0xFFCCCCCC);
@@ -47,6 +48,14 @@ class _DetailGoalsState extends State<DetailGoalsPage> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  void _goToBeranda() {
+    setState(() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BerandaPage()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -57,7 +66,7 @@ class _DetailGoalsState extends State<DetailGoalsPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               AppBar(
-                leading: BackButton(color: Colors.grey),
+                leading: BackButton(color: Colors.grey, onPressed: () => _goToBeranda()),
                 title: Text(
                   "Detail Goals",
                   style: TextStyle(
@@ -97,84 +106,83 @@ class _DetailGoalsState extends State<DetailGoalsPage> {
                       padding: EdgeInsets.only(top:10),
                       scrollDirection: Axis.vertical,
                       children: [
-                        for (var i in jumlah_container)
-                          Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.only(bottom: 25),
-                            padding: EdgeInsets.only(top: 10, bottom: 10, left: 5, right: 5),
-                            decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      offset: Offset(0,-10),
-                                      blurRadius: 0,
-                                      color: Color(0xFF97DBAE)
-                                  )
-                                ],
-                                color: Colors.white,
-                                borderRadius: BorderRadius.all(Radius.circular(5))
-                            ),
-                            child: Column(
-                                children: [
-                                  for (var i in jumlah_container)
-                                    Container(
-                                        padding: EdgeInsets.only(bottom: 7, top: 7),
-                                        child: Row(
-                                            children: [
-                                              Checkbox(
-                                                  activeColor: Theme.of(context).primaryColor,
-                                                  checkColor: Colors.black,
-                                                  value: isChecked,
-                                                  onChanged: (bool? value) {
-                                                    setState(() {
-                                                      isChecked = value!;
-                                                    });
-                                                  }
-                                              ),
-                                              Expanded(
-                                                child: Column(
-                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                  children: [
-                                                    Row(
-                                                      children: [
-                                                        Text(
-                                                          ('Task ' + i.toString()),
-                                                          textAlign: TextAlign.start,
-                                                          style: Theme.of(context).textTheme.headline5,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      children: [
-                                                        Text(
-                                                          ('Rincian Task ' + i.toString()),
-                                                          textAlign: TextAlign.start,
-                                                          style: Theme.of(context).textTheme.bodyText1,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      children: [
-                                                        Text(
-                                                          ('22:0' + i.toString()),
-                                                          textAlign: TextAlign.start,
-                                                          style: CustomTextStyle.captionText,
-                                                        ),
-                                                        Text(
-                                                          (' 4 November'),
-                                                          textAlign: TextAlign.start,
-                                                          style: CustomTextStyle.captionText,
-                                                        ),
-                                                      ],
-                                                    )
-                                                  ],
-                                                ),
-                                              )
-                                            ]
-                                        )
-                                    ),
-                                ]
-                            ),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(bottom: 25),
+                          padding: EdgeInsets.only(top: 10, bottom: 10, left: 5, right: 5),
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                    offset: Offset(0,-10),
+                                    blurRadius: 0,
+                                    color: Color(0xFF97DBAE)
+                                )
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(5))
                           ),
+                          child: Column(
+                              children: [
+                                for (var i in jumlah_container)
+                                  Container(
+                                      padding: EdgeInsets.only(bottom: 7, top: 7),
+                                      child: Row(
+                                          children: [
+                                            Checkbox(
+                                                activeColor: Theme.of(context).primaryColor,
+                                                checkColor: Colors.black,
+                                                value: isChecked,
+                                                onChanged: (bool? value) {
+                                                  setState(() {
+                                                    isChecked = value!;
+                                                  });
+                                                }
+                                            ),
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        ('Task ' + i.toString()),
+                                                        textAlign: TextAlign.start,
+                                                        style: Theme.of(context).textTheme.headline5,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        ('Rincian Task ' + i.toString()),
+                                                        textAlign: TextAlign.start,
+                                                        style: Theme.of(context).textTheme.bodyText1,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        ('22:0' + i.toString()),
+                                                        textAlign: TextAlign.start,
+                                                        style: CustomTextStyle.captionText,
+                                                      ),
+                                                      Text(
+                                                        (' 4 November'),
+                                                        textAlign: TextAlign.start,
+                                                        style: CustomTextStyle.captionText,
+                                                      ),
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                          ]
+                                      )
+                                  ),
+                              ]
+                          ),
+                        ),
                       ]
                   ),
                 ),
